@@ -156,6 +156,7 @@
             <div id="preloader">
                 <img src="img/load.gif" />
                 <p>Loading images in realtime from Instagram...</p>
+                <p id="percent">0%</p>
             </div>
         </div>
         <div id="one" class="slide"><h1>They already have a digital life</h1></div>
@@ -196,7 +197,7 @@
         var apikey = '?client_id=c34a8a50f27c46818b6b0d04933c48b6',
         photoList = [],
         iteration = 0,
-        max_iterations = 30,
+        max_iterations = 25,
         processed_photos =[];
 
         startProcess = function() {
@@ -213,6 +214,8 @@
                 if(iteration < max_iterations){
                     // $('#photos').html('Loading photos, iteration ' + iteration + ' of ' + max_iterations);
                     var next_url = query + '&max_tag_id=' + d.pagination.next_max_id
+                    var percent = Math.round((iteration * 100) / max_iterations);
+                    $('#percent').html(percent + '%');
                     setTimeout(getData(next_url), 500);
                 } else {
                     processPhotos();
@@ -312,8 +315,7 @@
                 height: 600,
                 title: '<p class="title">' + $(this).data('user') + ', ' + $(this).data('weeks') + ' weeks</p>' + $(this).data('title'),
                 helpers     : {
-                    title   : { type : 'inside' },
-                    buttons : {}
+                    title   : { type : 'inside' }
                 }
             });
             return false;
