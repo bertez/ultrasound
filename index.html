@@ -196,8 +196,7 @@
         var apikey = '?client_id=c34a8a50f27c46818b6b0d04933c48b6',
         photoList = [],
         iteration = 0,
-        max_iterations = 10,
-        max_photos = 30,
+        max_iterations = 30,
         processed_photos =[];
 
         startProcess = function() {
@@ -273,7 +272,7 @@
             bootloop.add(function() {
                 $('#loading').fadeOut();
                 $('#one').fadeIn();
-            }, 5000);
+            }, 1000);
 
             bootloop.add(function() {
                 $('#one').fadeOut();
