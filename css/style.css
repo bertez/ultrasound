@@ -1,0 +1,143 @@
+html, body{
+    height: 100%;
+    width: 100%;
+    background: #000;
+    font-family: 'Asap', sans-serif;
+    overflow-x: hidden;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    top: 0;
+    left:0;
+    color: #fff;
+}
+
+#loading #preloader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 120px;
+    margin-top: -60px;
+    margin-left: -150px;
+    text-align: center;
+    z-index: 110;
+}
+
+#loading #preloader p {
+    margin-top: 20px;
+    font-size: 1.5em;
+}
+
+#one{
+    z-index: 100;
+    display: none;
+}
+
+#two{
+    z-index: 90;
+    display: none;
+}
+
+#three{
+    z-index: 80;
+    display: none;
+}
+
+#four{
+    z-index: 70;
+    display: none;
+}
+
+#photos {
+    display:none;
+    margin-bottom: 20px;
+}
+
+#photobox{
+    box-sizing: border-box;
+    width: 1000px;
+    margin: 20px auto;
+}
+
+#photos img{
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+ */
+    filter: gray;
+    -webkit-filter: grayscale(100%);
+}
+
+#photos img:hover{
+    -webkit-filter: none;
+    filter: none;
+}
+
+.slide h1{
+    position: absolute;
+    width: 100%;
+    top: 45%;
+    text-align:center;
+    font-size: 4em;
+    text-transform: uppercase;
+}
+
+.block {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+
+.imagen {
+    position: relative;
+    display: inline-block;
+    opacity: 0;
+}
+
+.image a{
+    text-decoration: none;
+}
+
+.imagen p{
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    text-shadow: 2px 2px 0 #000;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.info {
+    width: 1000px;
+    text-align: center;
+    margin: 20px auto;
+    padding-bottom: 20px;
+}
+
+.info .reload {
+    font-size: 4em;
+    cursor: pointer;
+
+}
+
+.info .pop {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.info div {
+    margin: 20px 0 20px 0;
+}
+
+.info a {
+    color: #fff;
+}
