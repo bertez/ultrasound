@@ -18,7 +18,6 @@
             iteration++;
 
             if(iteration < max_iterations){
-                // $('#photos').html('Loading photos, iteration ' + iteration + ' of ' + max_iterations);
                 var next_url = query + '&max_tag_id=' + d.pagination.next_max_id
                 var percent = Math.round((iteration * 100) / max_iterations);
                 $('#percent').html(percent + '%');
@@ -35,13 +34,12 @@
     }
 
     processPhotos = function(){
-        $('#photobox').empty();
         photoList = photoList.shuffle();
 
         var i = 0;
 
-        while(processed_photos.length < 20){
-            if(photoList[i] && photoList[i].caption && photoList[i].caption.text.indexOf('week') > -1){
+        while(processed_photos.length < 20 || i === photoList.length){
+            if(photoList[i] && photoList[i].caption){
                 var currentPhoto = {};
 
                 var regex = /(\d+)\s?week/;
@@ -67,6 +65,8 @@
     }
 
     printPhotos = function () {
+        $('#photobox').empty();
+
         $.each(processed_photos, function(i, d){
             $('#photobox').append(photoTemplate(d.image, d.caption, d.user, d.created_at, d.week));
         });
@@ -110,16 +110,14 @@
         bootloop.start();
     };
 
-    startProcess();
-
     $('#photobox').on('click', '.fancybox', function() {
         $this = $(this);
         $.fancybox({
             href: $this.attr('href'),
             type: 'iframe',
-            width: 600,
-            height: 600,
-            title: '<p class="title">' + $(this).data('user') + ', ' + $(this).data('weeks') + ' weeks</p>' + $(this).data('title'),
+            width: 640,
+            height: 640,
+            title: '<p class="title">' + $this.data('user') + ', ' + $this.data('weeks') + ' weeks</p>' + $this.data('title'),
             helpers     : {
                 title   : { type : 'inside' }
             }
@@ -131,4 +129,5 @@
         window.location.reload();
     })
 
+    startProcess();
 })();
