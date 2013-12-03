@@ -118,8 +118,13 @@
             width: 640,
             height: 640,
             title: '<p class="title">' + $this.data('user') + ', ' + $this.data('weeks') + ' weeks</p>' + $this.data('title'),
-            helpers     : {
-                title   : { type : 'inside' }
+            helpers: {
+                title: {
+                    type: 'inside'
+                },
+                iframe: {
+                    scrolling: 'no'
+                }
             }
         });
         return false;
