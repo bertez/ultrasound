@@ -38,7 +38,7 @@
 
         var i = 0;
 
-        while(processed_photos.length < 20 || i === photoList.length){
+        while(processed_photos.length < 20 && i < photoList.length){
             if(photoList[i] && photoList[i].caption){
                 var currentPhoto = {};
 
